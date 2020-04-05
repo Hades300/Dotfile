@@ -1,0 +1,23 @@
+# the backbone of zplug
+source ~/.zplug/init.zsh
+
+# plugins installation goes below
+zplug "k4rthik/git-cal", as:command, frozen:1
+
+zplug "zsh-users/zsh-history-substring-search"
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+zplug "tcnksm/docker-alias", use:zshrc
+
+zplug "b4b4r07/enhancd", use:init.sh at:v1
+
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*linux*amd64*"
+
+zplug load --verbose
